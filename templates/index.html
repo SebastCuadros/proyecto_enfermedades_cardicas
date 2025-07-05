@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Predicción de Enfermedades Cardíacas</title>
+</head>
+<body>
+    <h1>Predicción de Riesgo Cardíaco</h1>
+    
+    <form action="/predict" method="post">
+        <label for="ciclismo">Porcentaje que monta bicicleta (%):</label><br>
+        <input type="text" name="ciclismo" required><br><br>
+
+        <label for="fumadores">Porcentaje de fumadores (%):</label><br>
+        <input type="text" name="fumadores" required><br><br>
+
+        <input type="submit" value="Predecir">
+    </form>
+
+    {% if prediction_text %}
+        <h2>{{ prediction_text }}</h2>
+    {% endif %}
+
+    <br>
+    <a href="/historial">
+        <button type="button">Ver historial de predicciones</button>
+    </a>
+</body>
+</html>

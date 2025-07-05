@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Historial de Predicciones</title>
+</head>
+<body>
+    <h1>Historial de Predicciones</h1>
+    <a href="/">Volver al formulario</a>
+    <table border="1">
+        <tr>
+            <th>Fecha y Hora</th>
+            <th>Ciclismo (%)</th>
+            <th>Fumadores (%)</th>
+            <th>Resultado (%)</th>
+        </tr>
+        {% for p in predicciones %}
+        <tr>
+            <td>{{ p.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+            <td>{{ p.ciclismo }}</td>
+            <td>{{ p.fumadores }}</td>
+            <td>{{ "%.2f" | format(p.resultado) }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
